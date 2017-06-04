@@ -87,6 +87,7 @@ class CompetitiveBid(db.Model):
     DSDESC = db.Column(db.String(200))
     SubmitTime = db.Column(db.DateTime)
     DSState = db.Column(db.Enum('Waiting', 'Reject', 'Accept'))
+    DSPrice = db.Column(db.Integer)
 
 class UserAddress(db.Model):
     __tablename__ = 'UserAddress'
@@ -109,6 +110,7 @@ class DesignerScheme(db.Model):
     CompanyID = db.Column(db.Integer)
     SchemeDESC = db.Column(db.String(200))
     SchemeImage = db.Column(db.BLOB)
+    SchemePrice = db.Column(db.Integer)
 
 class Furniture(db.Model):
     __tableanme__ = 'Furniture'
@@ -124,7 +126,7 @@ class OrderForm(db.Model):
     __tablename__ = 'OrderForm'
     OrderFormID = db.Column(db.Integer, primary_key = True)
     UserID = db.Column(db.Integer)
-    OerderFormState = db.Column(db.Enum('Waiting', 'Success', 'Fail', 'Cancel'))
+    OrderFormState = db.Column(db.Enum('Waiting', 'Success', 'Fail', 'Cancel'))
     CreateTime = db.Column(db.DateTime)
 
 class OrderItem(db.Model):

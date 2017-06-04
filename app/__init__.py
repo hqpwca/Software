@@ -15,7 +15,7 @@ lm = LoginManager()
 app = Flask(__name__)
 
 def create_app(configfile=None):
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:daijiarun553@localhost:3306/TYMT?charset=utf8'
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Internet@localhost:3306/SoftW?charset=utf8'
 	app.config['MAIL_SERVER'] = 'smtp.163.com'
 	app.config['MAIL_PORT'] = 465
 	app.config['MAIL_USE_SSL'] = True
@@ -34,6 +34,13 @@ def create_app(configfile=None):
 	app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 
 	#blueprint
+
+	from user_trade import user_trade_ as UTradePrint
+	app.register_blueprint(UTradePrint, url_prefix='/utrade')
+
+	from comp_trade import comp_trade_ as CTradePrint
+	app.register_blueprint(CTradePrint, url_prefix='/ctrade')
+
 	from app.auth.views import auth_ as AuthPrint
 	app.register_blueprint(AuthPrint, url_prefix='/auth')
 
