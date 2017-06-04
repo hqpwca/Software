@@ -1,3 +1,3 @@
-#PJ 天翼码头（TYMT）
+#Software PJ : CK_MTY组
 
-最后的工程branch，完成的功能自行push
+软件工程PJ：CK_MTY组完成部分
